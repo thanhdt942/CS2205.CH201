@@ -1,0 +1,29 @@
+project_name: "Legal-DocVQA-System"
+chunk_size: 500
+chunk_overlap: 50
+
+server:
+  host: "127.0.0.1"
+  port: 8080
+  reload: true
+
+llm:
+  name: "gpt-4o-mini"
+  temperature: 0
+  deployment: "openai"
+  base_url: null
+  api_key: ${oc.env:OPENAI_API_KEY}
+
+qdrant:
+  collection_name: "rag_collection"
+  host: ${oc.env:QDRANT_HOST}
+  port: ${oc.env:QDRANT_HTTP_PORT}
+  api_key: ${oc.env:QDRANT_API_KEY}
+
+search:
+  max_results: 10
+
+deepseek:
+  api_key: ${oc.env:DEEPSEEK_API_KEY}
+  base_url: "https://api.deepseek.com"
+  model: "deepseek-chat"
